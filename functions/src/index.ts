@@ -1,8 +1,11 @@
 import * as functions from 'firebase-functions';
+import * as admin from 'firebase-admin';
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
+admin.initializeApp();
+
+exports.addUser = functions.https.onRequest((req, resp) => {
+  const { name } = req.body
+  return admin.database().ref('/users').push({ name }).then(snapshot => {
+    return resp.status(200).send(`Welcome ${name}`)
+  })
+})
