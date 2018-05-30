@@ -11,8 +11,11 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@google-cloud/storage": "^1.7.0",
+    "express": "^4.16.3",
     "firebase-admin": "~5.12.1",
-    "firebase-functions": "^1.0.3"
+    "firebase-functions": "^1.0.3",
+    "safe-buffer": "^5.1.2"
   },
   "devDependencies": {
     "tslint": "^5.8.0",
